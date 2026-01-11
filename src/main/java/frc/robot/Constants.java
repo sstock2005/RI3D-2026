@@ -61,9 +61,9 @@ public class Constants {
         public static final int kIntakeRotationEncoderChannelB = 0;
 
         // Motor Configuration Constants
-        public static final int kSupplyCurrentLimit = 60;
-        public static final int kIntakeRotationStatorCurrentLimit = 120;
-        public static final int kIntakeRotationWheelStatorCurrentLimit = 120;
+        public static final Current kSupplyCurrentLimit = Amps.of(60);
+        public static final Current kIntakeRotationStatorCurrentLimit = Amps.of(120);
+        public static final Current kIntakeRotationWheelStatorCurrentLimit = Amps.of(120);
 
         // Encoder Positions
         public static final int kEncoderHomePosition = 0;

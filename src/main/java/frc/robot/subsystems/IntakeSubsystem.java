@@ -7,6 +7,7 @@ import com.ctre.phoenix6.configs.MotorOutputConfigs;
 import com.ctre.phoenix6.configs.TalonFXConfiguration;
 import com.ctre.phoenix6.controls.Follower;
 import com.ctre.phoenix6.hardware.TalonFX;
+import com.ctre.phoenix6.signals.InvertedValue;
 import com.ctre.phoenix6.signals.MotorAlignmentValue;
 import com.ctre.phoenix6.signals.NeutralModeValue;
 
@@ -37,26 +38,28 @@ public class IntakeSubsystem extends SubsystemBase {
             .withMotorOutput(
                 new MotorOutputConfigs()
                     .withNeutralMode(NeutralModeValue.Brake)
+                    .withInverted(InvertedValue.Clockwise_Positive)
             )
             .withCurrentLimits(
                 new CurrentLimitsConfigs()
-                    .withStatorCurrentLimit(Amps.of(Constants.IntakeConstants.kIntakeRotationStatorCurrentLimit))
-                    .withStatorCurrentLimitEnable(true)
-                    .withSupplyCurrentLimit(Amps.of(Constants.IntakeConstants.kSupplyCurrentLimit))
+                    .withSupplyCurrentLimit(Constants.IntakeConstants.kSupplyCurrentLimit)
+                    .withStatorCurrentLimit(Constants.IntakeConstants.kIntakeRotationStatorCurrentLimit)
                     .withSupplyCurrentLimitEnable(true)
+                    .withStatorCurrentLimitEnable(true)
             );
 
         intakeWheelConfig
             .withMotorOutput(
                 new MotorOutputConfigs()
                     .withNeutralMode(NeutralModeValue.Brake)
+                    .withInverted(InvertedValue.Clockwise_Positive)
             )
             .withCurrentLimits(
                 new CurrentLimitsConfigs()
-                    .withStatorCurrentLimit(Amps.of(Constants.IntakeConstants.kIntakeRotationWheelStatorCurrentLimit))
-                    .withStatorCurrentLimitEnable(true)
-                    .withSupplyCurrentLimit(Amps.of(Constants.IntakeConstants.kSupplyCurrentLimit))
+                    .withSupplyCurrentLimit(Constants.IntakeConstants.kSupplyCurrentLimit)
+                    .withStatorCurrentLimit(Constants.IntakeConstants.kIntakeRotationWheelStatorCurrentLimit)
                     .withSupplyCurrentLimitEnable(true)
+                    .withStatorCurrentLimitEnable(true)
             );
 
         intakeRotationLeader.getConfigurator().apply(intakeRotationConfig);
