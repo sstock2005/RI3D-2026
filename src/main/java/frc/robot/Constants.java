@@ -68,7 +68,7 @@ public class Constants {
         public static final int kEncoderOutPosition = 0;
 
         // Speed Constants
-        public static final double kRotationSpeed = 0.1;
-        public static final double kWheelSpeed = 0.1;
+        public static final double kRotationSpeed = 0.02;
+        public static final double kWheelSpeed = 0.02;
     }
 }

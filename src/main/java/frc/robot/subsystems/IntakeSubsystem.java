@@ -64,7 +64,7 @@ public class IntakeSubsystem extends SubsystemBase {
         intakeRotationFollower.getConfigurator().apply(intakeRotationConfig);
         intakeWheel.getConfigurator().apply(intakeWheelConfig);
 
-        intakeRotationFollower.setControl(new Follower(intakeRotationLeader.getDeviceID(), MotorAlignmentValue.Aligned));
+        intakeRotationFollower.setControl(new Follower(intakeRotationLeader.getDeviceID(), MotorAlignmentValue.Opposed));
 
         // The Motor Safety feature acts as a watchdog timer for an individual motor. 
         // It operates by maintaining a timer that tracks how long it has been since the feed() 
