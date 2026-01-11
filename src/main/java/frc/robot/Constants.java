@@ -1,7 +1,9 @@
 package frc.robot;
 
 import static edu.wpi.first.units.Units.Amps;
+import static edu.wpi.first.units.Units.RotationsPerSecond;
 
+import edu.wpi.first.units.measure.AngularVelocity;
 import edu.wpi.first.units.measure.Current;
 
 public class Constants 
@@ -17,6 +19,27 @@ public class Constants
         public static final int kRightLeaderPort = 9;
         public static final int kRightFollowerPort = 4;
         public static final double kStickDeadband = 0.1;
+    }
+    
+    public static final class ShooterConstants {
+        // Motor ports
+        public static final int kShooterMotorPort = 8;
+
+        // PID & Feed forward
+        public static final double kP = 0; // Proportional Gain
+        public static final double kI = 0; // Integral Gain
+        public static final double kD = 0; // Derivative Gain
+        public static final double kV = 0; // Velocity Feedforward Gain
+
+        // Tolerance
+        public static final AngularVelocity kTolerance = RotationsPerSecond.of(5);
+
+        // Current limits
+        public static final Current kShooterMotorStatorCurrentLimit = Amps.of(120);
+        public static final Current kShooterMotorSupplyCurrentLimit = Amps.of(60);
+
+        // Shoot Speeds
+        public static final double kShootCloseSpeed = .5;
     }
 
     public static final class FeederConstants{
