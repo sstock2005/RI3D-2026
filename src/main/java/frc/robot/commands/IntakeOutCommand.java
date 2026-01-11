@@ -17,16 +17,7 @@ public class IntakeOutCommand extends Command {
     
     @Override
     public void execute() {
-        // While intake is not to out position, go towards out position
-        // Includes a grace of 10 so we don't get too close
-        // Assumes encoder "home" is 0 and out position is towards positive
-        // Assumes intake rotates positive
-        if (m_intakeSubsystem.getEncoder().get() < Constants.IntakeConstants.kEncoderOutPosition - 10) {
-            m_intakeSubsystem.setIntakeRotation(Constants.IntakeConstants.kRotationSpeed);
-        }
-        else {
-            m_intakeSubsystem.setIntakeRotation(0.0);
-        }
+        m_intakeSubsystem.setIntakePosition(Constants.IntakeConstants.kEncoderOutPosition);
     }
     
     @Override

@@ -17,16 +17,7 @@ public class IntakeInCommand extends Command {
     
     @Override
     public void execute() {
-        // While intake is not to home position, go towards home position
-        // Includes a grace of 10 so we don't get too close
-        // Assumes encoder "home" is 0
-        // Assumes intake rotates positive so we give it negative speed to rotation towards home
-        if (m_intakeSubsystem.getEncoder().get() > Constants.IntakeConstants.kEncoderHomePosition + 10) {
-            m_intakeSubsystem.setIntakeRotation(-Constants.IntakeConstants.kRotationSpeed);
-        }
-        else {
-            m_intakeSubsystem.setIntakeRotation(0.0);
-        }
+        m_intakeSubsystem.setIntakePosition(Constants.IntakeConstants.kEncoderHomePosition);
     }
     
     @Override

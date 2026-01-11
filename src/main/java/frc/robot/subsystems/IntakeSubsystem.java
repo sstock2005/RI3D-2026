@@ -99,16 +99,8 @@ public class IntakeSubsystem extends SubsystemBase {
         intakeWheel.setSafetyEnabled(true);
     }
 
-    public void setIntakeRotation(double speed) {
-        intakeRotationLeader.set(speed);
-    }
-
     public void setIntakeWheel(double speed) {
         intakeWheel.set(speed);
-    }
-
-    public Encoder getEncoder() {
-        return rotationEncoder;
     }
 
     public void setIntakePosition(int encoderTicks){
