@@ -12,6 +12,7 @@ import com.ctre.phoenix6.configs.TalonFXConfiguration;
 import com.ctre.phoenix6.controls.Follower;
 import com.ctre.phoenix6.controls.MotionMagicVoltage;
 import com.ctre.phoenix6.hardware.TalonFX;
+import com.ctre.phoenix6.signals.InvertedValue;
 import com.ctre.phoenix6.signals.MotorAlignmentValue;
 import com.ctre.phoenix6.signals.NeutralModeValue;
 
@@ -44,12 +45,12 @@ public class IntakeSubsystem extends SubsystemBase {
             .withMotorOutput(
                 new MotorOutputConfigs()
                     .withNeutralMode(NeutralModeValue.Brake)
+                    .withInverted(InvertedValue.Clockwise_Positive)
             )
             .withCurrentLimits(
                 new CurrentLimitsConfigs()
-                    .withStatorCurrentLimit(Amps.of(Constants.IntakeConstants.kIntakeRotationStatorCurrentLimit))
-                    .withStatorCurrentLimitEnable(true)
-                    .withSupplyCurrentLimit(Amps.of(Constants.IntakeConstants.kSupplyCurrentLimit))
+                    .withSupplyCurrentLimit(Constants.IntakeConstants.kSupplyCurrentLimit)
+                    .withStatorCurrentLimit(Constants.IntakeConstants.kIntakeRotationStatorCurrentLimit)
                     .withSupplyCurrentLimitEnable(true)
             )
             .withSlot0(
@@ -72,20 +73,21 @@ public class IntakeSubsystem extends SubsystemBase {
             .withMotorOutput(
                 new MotorOutputConfigs()
                     .withNeutralMode(NeutralModeValue.Brake)
+                    .withInverted(InvertedValue.Clockwise_Positive)
             )
             .withCurrentLimits(
                 new CurrentLimitsConfigs()
-                    .withStatorCurrentLimit(Amps.of(Constants.IntakeConstants.kIntakeRotationWheelStatorCurrentLimit))
-                    .withStatorCurrentLimitEnable(true)
-                    .withSupplyCurrentLimit(Amps.of(Constants.IntakeConstants.kSupplyCurrentLimit))
+                    .withSupplyCurrentLimit(Constants.IntakeConstants.kSupplyCurrentLimit)
+                    .withStatorCurrentLimit(Constants.IntakeConstants.kIntakeRotationWheelStatorCurrentLimit)
                     .withSupplyCurrentLimitEnable(true)
+                    .withStatorCurrentLimitEnable(true)
             );
 
         intakeRotationLeader.getConfigurator().apply(intakeRotationConfig);
         intakeRotationFollower.getConfigurator().apply(intakeRotationConfig);
         intakeWheel.getConfigurator().apply(intakeWheelConfig);
 
-        intakeRotationFollower.setControl(new Follower(intakeRotationLeader.getDeviceID(), MotorAlignmentValue.Aligned));
+        intakeRotationFollower.setControl(new Follower(intakeRotationLeader.getDeviceID(), MotorAlignmentValue.Opposed));
 
         // The Motor Safety feature acts as a watchdog timer for an individual motor. 
         // It operates by maintaining a timer that tracks how long it has been since the feed() 

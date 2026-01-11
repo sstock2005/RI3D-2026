@@ -30,10 +30,7 @@ public class IntakeInCommand extends Command {
     }
     
     @Override
-    public void end(boolean interrupted) {
-        // Just in case
-        m_intakeSubsystem.setIntakeRotation(0.0);
-    }
+    public void end(boolean interrupted) {}
     
     @Override
     public boolean isFinished() {
