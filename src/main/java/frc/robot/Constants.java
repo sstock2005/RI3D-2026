@@ -6,8 +6,6 @@ import static edu.wpi.first.units.Units.RotationsPerSecond;
 import edu.wpi.first.units.measure.AngularVelocity;
 import edu.wpi.first.units.measure.Current;
 
-public class Constants 
-{
 public class Constants {
     public static final int kDriverControllerPort = 0;
 
