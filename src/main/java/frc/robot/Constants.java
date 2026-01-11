@@ -40,7 +40,7 @@ public class Constants {
 
     public static final class FeederConstants{
         //Motor port
-        public static final int kFeederPort = 1;
+        public static final int kFeederPort = 9;
         
         // Speed Constant
         public static final double kFeederSpeed = 0.1;
@@ -52,9 +52,9 @@ public class Constants {
 
     public static final class IntakeConstants {
         // Port Constants
-        public static final int kIntakeRotationLeaderPort = 0;
-        public static final int kIntakeRotationFollowerPort = 0;
-        public static final int kIntakeWheelPort = 0;
+        public static final int kIntakeRotationLeaderPort = 6;
+        public static final int kIntakeRotationFollowerPort = 10;
+        public static final int kIntakeWheelPort = 7;
         public static final int kIntakeRotationEncoderChannelA = 0;
         public static final int kIntakeRotationEncoderChannelB = 0;
 
