@@ -23,8 +23,7 @@ public class Constants
     
     public static final class ShooterConstants {
         // Motor ports
-        public static final int kShooterLeaderPort = 8;
-        public static final int kShooterFollowerPort = 9;
+        public static final int kShooterMotorPort = 8;
 
         // PID & Feed forward
         public static final double kP = 0; // Proportional Gain
@@ -38,6 +37,9 @@ public class Constants
         // Current limits
         public static final Current kShooterMotorStatorCurrentLimit = Amps.of(120);
         public static final Current kShooterMotorSupplyCurrentLimit = Amps.of(60);
+
+        // Shoot Speeds
+        public static final double kShootCloseSpeed = .5;
     }
 
     public static final class JointConstants 
