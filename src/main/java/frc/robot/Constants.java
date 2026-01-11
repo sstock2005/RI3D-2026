@@ -50,6 +50,21 @@ public class Constants {
         public static final Current kFeederMotorSupplyCurrentLimit = Amps.of(40);
     }
 
+    public static final class ClimbConstants {
+        public static final int kClimbMotorPort = 11;
+
+        // Current limits
+        public static final int kClimbStatorCurrentLimit = 120;
+        public static final int kClimbSupplyCurrentLimit = 60;
+
+        // climb motor run speed
+        public static final double kClimbSpeed = .1;
+
+        // motor soft limits
+        public static final int kClimbUpperLimit = 0;
+        public static final int kClimbLowerLimit = 0;
+    }
+
     public static final class IntakeConstants {
         // Port Constants
         public static final int kIntakeRotationLeaderPort = 6;
