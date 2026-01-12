@@ -85,5 +85,14 @@ public class Constants {
         // Speed Constants
         public static final double kRotationSpeed = 0.02;
         public static final double kWheelSpeed = 0.02;
+
+        public static final double kS = 0.25; // Add 0.25 V output to overcome static friction
+        public static final double kV = 0.12; // A velocity target of 1 rps results in 0.12 V output
+        public static final double kA = 0.01; // An acceleration of 1 rps/s requires 0.01 V output
+        public static final double kP = 4.8; // A position error of 2.5 rotations results in 12 V output
+        public static final double kI = 0; // no output for integrated erro
+        public static final double kD = 0.1; // A velocity error of 1 rps results in 0.1 V output
+        public static final int velocity = 1;
+        public static final int acceleration = 2;
     }
 }
