@@ -21,8 +21,8 @@ public class RobotContainer {
     private void configureBindings() {
         m_drivetrain.setDefaultCommand(
             m_drivetrain.driveArcade(
-                () -> -m_driverController.getLeftY(),
-                () -> -m_driverController.getRightX())
+                () -> -m_driverController.getLeftY()  * Constants.DrivetrainConstants.kDriveScaling,
+                () -> -m_driverController.getRightX()* Constants.DrivetrainConstants.kRotationScaling)
             );
 
       m_driverController.rightTrigger().whileTrue(new ShootCommand(m_shooter, m_feeder));

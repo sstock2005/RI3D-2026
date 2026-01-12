@@ -15,6 +15,10 @@ public class Constants {
         public static final int kRightLeaderPort = 4;
         public static final int kRightFollowerPort = 5;
         public static final double kStickDeadband = 0.1;
+
+        // Scaling factors for teleop control
+        public static final double kDriveScaling = 0.5;
+        public static final double kRotationScaling = 0.5;
     }
     
     public static final class ShooterConstants {
@@ -35,7 +39,7 @@ public class Constants {
         public static final Current kShooterMotorSupplyCurrentLimit = Amps.of(60);
 
         // Shoot Speeds
-        public static final double kShootCloseSpeed = 5;
+        public static final double kShootCloseSpeed = 50;
     }
 
     public static final class FeederConstants{
