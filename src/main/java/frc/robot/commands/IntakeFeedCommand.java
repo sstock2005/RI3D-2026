@@ -22,6 +22,7 @@ public class IntakeFeedCommand extends Command {
     @Override
     public void initialize() {}
     
+    // Run intake wheel in desired direction
     @Override
     public void execute() {
         if (m_inverted) {
@@ -33,12 +34,14 @@ public class IntakeFeedCommand extends Command {
         }
     }
     
+    // Stop the intake wheel
     @Override
     public void end(boolean interrupted) {
         m_intakeSubsystem.setIntakeWheel(0.0);
         // m_feedSubsystem.setFeed(Constants.FeedConstants.kFeedSpeed);
     }
     
+    // Never finishes on its own
     @Override
     public boolean isFinished() {
         return false;

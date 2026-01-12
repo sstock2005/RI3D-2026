@@ -7,6 +7,11 @@ import com.revrobotics.spark.SparkBase.ResetMode;
 
 import java.util.function.DoubleSupplier;
 
+import static frc.robot.Constants.DrivetrainConstants.kLeftLeaderPort;
+import static frc.robot.Constants.DrivetrainConstants.kLeftFollowerPort;
+import static frc.robot.Constants.DrivetrainConstants.kRightLeaderPort;
+import static frc.robot.Constants.DrivetrainConstants.kRightFollowerPort;
+
 import com.revrobotics.spark.SparkBase.PersistMode;
 
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
@@ -15,7 +20,6 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 import com.revrobotics.spark.SparkLowLevel.MotorType;
-import frc.robot.Constants;
 
 public class DrivetrainSubsystem extends SubsystemBase
 {
@@ -29,10 +33,10 @@ public class DrivetrainSubsystem extends SubsystemBase
     public DrivetrainSubsystem()
     {
         // Initialize the SPARKs
-        leftLeader = new SparkMax(Constants.DrivetrainConstants.kLeftLeaderPort, MotorType.kBrushless);
-        leftFollower = new SparkMax(Constants.DrivetrainConstants.kLeftFollowerPort, MotorType.kBrushless);
-        rightLeader = new SparkMax(Constants.DrivetrainConstants.kRightLeaderPort, MotorType.kBrushless);
-        rightFollower = new SparkMax(Constants.DrivetrainConstants.kRightFollowerPort, MotorType.kBrushless);
+        leftLeader = new SparkMax(kLeftLeaderPort, MotorType.kBrushless);
+        leftFollower = new SparkMax(kLeftFollowerPort, MotorType.kBrushless);
+        rightLeader = new SparkMax(kRightLeaderPort, MotorType.kBrushless);
+        rightFollower = new SparkMax(kRightFollowerPort, MotorType.kBrushless);
 
         // Create new SPARK MAX configuration objects.
         SparkMaxConfig globalConfig = new SparkMaxConfig();

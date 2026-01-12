@@ -19,11 +19,13 @@ public class ShootCommand extends Command{
         addRequirements(shooterSubsystem, feederSubsystem);
     }
 
+    // Set shooter to close speed
     @Override
     public void initialize() {
         m_ShooterSubsystem.SetVelocity(kShootCloseSpeed);
     }
 
+    // Run feeder only when shooter is in tolerance
     @Override
     public void execute() {
         if(m_ShooterSubsystem.AtVelocity()) {
@@ -34,12 +36,14 @@ public class ShootCommand extends Command{
         }
     }
 
+    // Stop both shooter and feeder
     @Override
     public void end(boolean interrupted) {
         m_ShooterSubsystem.Stop();
         m_FeederSubsystem.Stop();
     }
 
+    // Never finishes on its own
     @Override
     public boolean isFinished() {
         return false;

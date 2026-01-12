@@ -17,10 +17,10 @@ public class FeederSubsystem extends SubsystemBase {
     private TalonFX feeder;
     private TalonFXConfiguration feederConfig;
 
-
     public FeederSubsystem(){
         feeder = new TalonFX(kFeederPort);
-        //setup feeder motor
+
+        // Setup feeder motor with current limits, non inverted, brake mode.
         feederConfig = new TalonFXConfiguration()
             .withCurrentLimits(
                 new CurrentLimitsConfigs()
@@ -43,6 +43,7 @@ public class FeederSubsystem extends SubsystemBase {
         feeder.setSafetyEnabled(false);
     }
 
+    // set motor speed (% of max)
     public void setFeederSpeed(double speed){
         feeder.set(speed);
     }

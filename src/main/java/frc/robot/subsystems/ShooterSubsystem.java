@@ -53,24 +53,27 @@ public class ShooterSubsystem extends SubsystemBase {
                     .withKV(kV)
             );
             
-        // apply configs
+        // apply configs and pid controller
         shooterMotor.getConfigurator().apply(shooterMotorConfig);
         shooterController = new VelocityVoltage(0.0).withSlot(0);
 
         // enable motor watchdog
-        shooterMotor.setSafetyEnabled(false);
+        shooterMotor.setSafetyEnabled(true);
     }
 
+    // Set shooter wheel velocity in rotations per second
     public void SetVelocity(double rotationsPerSecond) {
         targetRps = rotationsPerSecond;
         shooterMotor.setControl(shooterController.withVelocity(rotationsPerSecond));
     }
 
+    // Stop the shooter wheel
     public void Stop() {
         targetRps = 0.0;
         shooterMotor.stopMotor();
     }
 
+    // Return if shooter is within the tolerance in constants
     public boolean AtVelocity() {
         // Make sure encoder data is fresh
         BaseStatusSignal.refreshAll(shooterMotor.getVelocity(), shooterMotor.getAcceleration());
@@ -83,6 +86,7 @@ public class ShooterSubsystem extends SubsystemBase {
         return Math.abs(v.in(RotationsPerSecond) - targetRps) < kTolerance.in(RotationsPerSecond);
     }
 
+    // continue setting velocity to prevent watchdog trigger
     @Override
     public void periodic() {
         shooterMotor.setControl(shooterController.withVelocity(targetRps));
