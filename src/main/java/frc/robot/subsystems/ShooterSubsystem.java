@@ -56,7 +56,7 @@ public class ShooterSubsystem extends SubsystemBase {
         shooterMotor.getConfigurator().apply(shooterMotorConfig);
 
         // enable motor watchdog
-        shooterMotor.setSafetyEnabled(true);
+        shooterMotor.setSafetyEnabled(false);
     }
 
     public void SetVelocity(double rotationsPerSecond) {

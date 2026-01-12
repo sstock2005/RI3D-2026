@@ -1,4 +1,4 @@
-package frc.robot.commands;
+/*package frc.robot.commands;
 
 import static frc.robot.Constants.ClimbConstants.kClimbSpeed;
 
@@ -55,3 +55,4 @@ public class AutoClimbCommand extends Command {
         return super.isFinished();
     }
 }
+*/

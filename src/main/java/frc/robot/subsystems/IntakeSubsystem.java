@@ -35,7 +35,7 @@ public class IntakeSubsystem extends SubsystemBase {
         intakeRotationFollower = new TalonFX(Constants.IntakeConstants.kIntakeRotationFollowerPort);
 
         intakeWheel = new TalonFX(Constants.IntakeConstants.kIntakeWheelPort);
-        rotationEncoder = new Encoder(Constants.IntakeConstants.kIntakeRotationEncoderChannelA, Constants.IntakeConstants.kIntakeRotationEncoderChannelB);
+        // rotationEncoder = new Encoder(Constants.IntakeConstants.kIntakeRotationEncoderChannelA, Constants.IntakeConstants.kIntakeRotationEncoderChannelB);
 
         var intakeRotationConfig = new TalonFXConfiguration();
         var intakeWheelConfig = new TalonFXConfiguration();
@@ -94,9 +94,9 @@ public class IntakeSubsystem extends SubsystemBase {
         // method has been called for that actuator. Code in the Driver Station class initiates a 
         // comparison of these timers to the timeout values for any actuator with safety 
         // enabled every 5 received packets (100ms nominal).
-        intakeRotationLeader.setSafetyEnabled(true);
-        intakeRotationFollower.setSafetyEnabled(true);
-        intakeWheel.setSafetyEnabled(true);
+        intakeRotationLeader.setSafetyEnabled(false);
+        intakeRotationFollower.setSafetyEnabled(false);
+        intakeWheel.setSafetyEnabled(false);
     }
 
     public void setIntakeWheel(double speed) {

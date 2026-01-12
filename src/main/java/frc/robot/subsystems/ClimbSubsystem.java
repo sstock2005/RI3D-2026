@@ -1,4 +1,4 @@
-package frc.robot.subsystems;
+/*package frc.robot.subsystems;
 
 import static frc.robot.Constants.ClimbConstants.kClimbLeaderPort;
 import static frc.robot.Constants.ClimbConstants.kClimbFollowerPort;
@@ -67,3 +67,4 @@ public class ClimbSubsystem extends SubsystemBase {
         climbLeader.setControl(climbController.withVelocity(targetRps));
     }
 }
+*/

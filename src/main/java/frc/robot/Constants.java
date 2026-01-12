@@ -35,7 +35,7 @@ public class Constants {
         public static final Current kShooterMotorSupplyCurrentLimit = Amps.of(60);
 
         // Shoot Speeds
-        public static final double kShootCloseSpeed = .5;
+        public static final double kShootCloseSpeed = 5;
     }
 
     public static final class FeederConstants{
@@ -43,7 +43,7 @@ public class Constants {
         public static final int kFeederPort = 9;
         
         // Speed Constant
-        public static final double kFeederSpeed = 0.1;
+        public static final double kFeederSpeed = 0.2;
 
         // Current limits
         public static final Current kFeederMotorStatorCurrentLimit = Amps.of(120);
@@ -59,7 +59,7 @@ public class Constants {
         public static final int kClimbSupplyCurrentLimit = 60;
 
         // climb motor run speed
-        public static final double kClimbSpeed = .1;
+        public static final double kClimbSpeed = .2;
 
         // motor soft limits
         public static final int kClimbUpperLimit = 0;
@@ -71,8 +71,8 @@ public class Constants {
         public static final int kIntakeRotationLeaderPort = 6;
         public static final int kIntakeRotationFollowerPort = 10;
         public static final int kIntakeWheelPort = 7;
-        public static final int kIntakeRotationEncoderChannelA = 0;
-        public static final int kIntakeRotationEncoderChannelB = 0;
+        // public static final int kIntakeRotationEncoderChannelA = 0;
+        // public static final int kIntakeRotationEncoderChannelB = 0;
 
         // Motor Configuration Constants
         public static final Current kSupplyCurrentLimit = Amps.of(60);
@@ -81,7 +81,7 @@ public class Constants {
 
         // Encoder Positions
         public static final int kEncoderHomePosition = 0;
-        public static final int kEncoderOutPosition = 0;
+        public static final int kEncoderOutPosition = 100;
 
         // Speed Constants
         public static final double kRotationSpeed = 0.5;

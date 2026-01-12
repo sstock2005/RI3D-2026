@@ -6,6 +6,7 @@ import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 import com.revrobotics.spark.SparkBase.ResetMode;
 import com.revrobotics.spark.SparkBase.PersistMode;
 
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
@@ -14,19 +15,20 @@ import frc.robot.Constants;
 
 public class DrivetrainSubsystem extends SubsystemBase
 {
-    SparkMax leftLeader;
-    SparkMax leftFollower;
-    SparkMax rightLeader;
-    SparkMax rightFollower;
+    private final SparkMax leftLeader;
+    private final SparkMax leftFollower;
+    private final SparkMax rightLeader;
+    private final SparkMax rightFollower;
 
-    @SuppressWarnings("removal")
+    private final DifferentialDrive drive;
+
     public DrivetrainSubsystem()
     {
         // Initialize the SPARKs
         leftLeader = new SparkMax(Constants.DrivetrainConstants.kLeftLeaderPort, MotorType.kBrushless);
         leftFollower = new SparkMax(Constants.DrivetrainConstants.kLeftFollowerPort, MotorType.kBrushless);
         rightLeader = new SparkMax(Constants.DrivetrainConstants.kRightLeaderPort, MotorType.kBrushless);
-        rightFollower = new SparkMax(Constants.DrivetrainConstants.kLeftFollowerPort, MotorType.kBrushless);
+        rightFollower = new SparkMax(Constants.DrivetrainConstants.kRightFollowerPort, MotorType.kBrushless);
 
         // Create new SPARK MAX configuration objects.
         SparkMaxConfig globalConfig = new SparkMaxConfig();
@@ -62,6 +64,8 @@ public class DrivetrainSubsystem extends SubsystemBase
         leftFollower.configure(leftFollowerConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
         rightLeader.configure(rightLeaderConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
         rightFollower.configure(rightFollowerConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
+
+        drive = new DifferentialDrive(leftLeader, rightLeader);
     }
 
     @Override
@@ -71,9 +75,8 @@ public class DrivetrainSubsystem extends SubsystemBase
         SmartDashboard.putNumber("Right Out", rightLeader.getAppliedOutput());
     }
 
-    public void driveArcade(double forward, double rotation)
+    public void driveArcade(double xSpeed, double zRotation)
     {
-        leftLeader.set(forward + rotation);
-        rightLeader.set(forward - rotation);
+        drive.arcadeDrive(xSpeed, zRotation);
     }
 }

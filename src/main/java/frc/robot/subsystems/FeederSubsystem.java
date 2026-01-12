@@ -40,7 +40,7 @@ public class FeederSubsystem extends SubsystemBase {
         feeder.getConfigurator().apply(feederConfig);
 
         // enable motor watchdog
-        feeder.setSafetyEnabled(true);
+        feeder.setSafetyEnabled(false);
     }
 
     public void setFeederSpeed(double speed){
