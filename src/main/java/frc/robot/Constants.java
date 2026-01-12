@@ -88,7 +88,7 @@ public class Constants {
 
         // Speed Constants
         public static final double kRotationSpeed = 0.02;
-        public static final double kWheelSpeed = 0.02;
+        public static final double kWheelSpeed = 0.5;
 
         public static final double kS = 0.25; // Add 0.25 V output to overcome static friction
         public static final double kV = 0.12; // A velocity target of 1 rps results in 0.12 V output
