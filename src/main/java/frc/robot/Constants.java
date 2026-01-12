@@ -31,7 +31,7 @@ public class Constants {
         public static final double kD = 0; // Derivative Gain
         public static final double kV = 0.12; // Velocity Feedforward Gain
 
-        // Tolerance
+        // Toleranced
         public static final AngularVelocity kTolerance = RotationsPerSecond.of(5);
 
         // Current limits
@@ -81,7 +81,7 @@ public class Constants {
         public static final Current kIntakeRotationWheelStatorCurrentLimit = Amps.of(120);
 
         // Speed Constants
-        public static final double kRotationSpeed = 0.02;
+        public static final double kRotationSpeed = 0.05;
         public static final double kWheelSpeed = 0.8;
 
         public static final double kS = 0.25; // Add 0.25 V output to overcome static friction
@@ -94,7 +94,7 @@ public class Constants {
         public static final int acceleration = 2;
 
         // Intake Rotation Limits
-        public static final double kIntakeRotationMaxPosition = 100.0;
+        public static final double kIntakeRotationMaxPosition = 5.25;
         public static final double kIntakeRotationMinPosition = 0.0;
     }
 }

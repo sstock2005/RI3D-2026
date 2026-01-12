@@ -15,24 +15,30 @@ public class MoveIntakeCommand extends Command {
         m_speed = speed;
         addRequirements(subsystem);
     }
-    
+
     @Override
     public void initialize() {}
     
     // Move intake rotation while respecting position limits
     @Override
     public void execute() {
-        double currentLeftPos = m_intakeSubsystem.getLeftIntakePosition();
-        double currentRightPos = m_intakeSubsystem.getRightIntakePosition();
+        double pos = m_intakeSubsystem.getLeftIntakePosition();
+
+        if (m_speed > 0.0 &&
+            pos >= Constants.IntakeConstants.kIntakeRotationMaxPosition) {
+            m_intakeSubsystem.setIntakeRotation(0.0);
+            return;
+        }
 
         if ((m_speed > 0 && (currentLeftPos >= kIntakeRotationMaxPosition || currentRightPos >= kIntakeRotationMaxPosition)) ||
             (m_speed < 0 && (currentLeftPos <= kIntakeRotationMinPosition || currentRightPos <= kIntakeRotationMinPosition))) {
             m_intakeSubsystem.setIntakeRotation(0.0);
             return;
         }
-        
+
         m_intakeSubsystem.setIntakeRotation(m_speed);
     }
+
     
     // Stop intake rotation on command end
     @Override

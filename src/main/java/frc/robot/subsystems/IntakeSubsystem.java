@@ -14,7 +14,6 @@ import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.signals.InvertedValue;
 import com.ctre.phoenix6.signals.NeutralModeValue;
 
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class IntakeSubsystem extends SubsystemBase {
@@ -39,7 +38,7 @@ public class IntakeSubsystem extends SubsystemBase {
             .withMotorOutput(
                 new MotorOutputConfigs()
                     .withNeutralMode(NeutralModeValue.Brake)
-                    .withInverted(InvertedValue.Clockwise_Positive)
+                    .withInverted(InvertedValue.CounterClockwise_Positive)
             )
             .withCurrentLimits(
                 new CurrentLimitsConfigs()
@@ -54,7 +53,7 @@ public class IntakeSubsystem extends SubsystemBase {
             .withMotorOutput(
                 new MotorOutputConfigs()
                     .withNeutralMode(NeutralModeValue.Brake)
-                    .withInverted(InvertedValue.CounterClockwise_Positive)
+                    .withInverted(InvertedValue.Clockwise_Positive) // Inverted
             )
             .withCurrentLimits(
                 new CurrentLimitsConfigs()
@@ -68,7 +67,7 @@ public class IntakeSubsystem extends SubsystemBase {
             .withMotorOutput(
                 new MotorOutputConfigs()
                     .withNeutralMode(NeutralModeValue.Brake)
-                    .withInverted(InvertedValue.Clockwise_Positive) // Inverted
+                    .withInverted(InvertedValue.Clockwise_Positive)
             )
             .withCurrentLimits(
                 new CurrentLimitsConfigs()
@@ -110,11 +109,5 @@ public class IntakeSubsystem extends SubsystemBase {
 
     // put diagnostics to smartdashboard
     @Override
-    public void periodic() {
-        SmartDashboard.putNumber("Intake Wheel Set Speed", intakeWheel.get());
-        SmartDashboard.putNumber("Left Intake Rotation Set Speed", intakeRotationLeft.get());
-        SmartDashboard.putNumber("Right Intake Rotation Set Speed", intakeRotationRight.get());
-        SmartDashboard.putNumber("Left Intake Rotation Position", intakeRotationLeft.getPosition().getValueAsDouble());
-        SmartDashboard.putNumber("Right Intake Rotation Position", intakeRotationRight.getPosition().getValueAsDouble());
-    }
+    public void periodic() {}
 }

@@ -27,10 +27,10 @@ public class RobotContainer {
 
         m_driverController.rightTrigger().whileTrue(new ShootCommand(m_shooter, m_feeder));
         m_driverController.rightBumper().whileTrue(new MoveIntakeCommand(m_intake, Constants.IntakeConstants.kRotationSpeed));
-        m_driverController.leftBumper().onTrue(new MoveIntakeCommand(m_intake, -Constants.IntakeConstants.kRotationSpeed));
+        m_driverController.leftBumper().whileTrue(new MoveIntakeCommand(m_intake, -Constants.IntakeConstants.kRotationSpeed));
         m_driverController.leftTrigger().whileTrue(new IntakeFeedCommand(m_intake, false));
         // m_driverController.povUp().whileTrue(new ClimbUp(m_climb));
         // m_driverController.povDown().whileTrue(new ClimbDown(m_climb));
         m_driverController.a().whileTrue(new IntakeFeedCommand(m_intake, true));
         }
-}
+}   
