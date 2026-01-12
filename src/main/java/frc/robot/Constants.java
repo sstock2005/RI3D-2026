@@ -51,7 +51,8 @@ public class Constants {
     }
 
     public static final class ClimbConstants {
-        public static final int kClimbMotorPort = 11;
+        public static final int kClimbLeaderPort = 11;
+        public static final int kClimbFollowerPort = 12;
 
         // Current limits
         public static final int kClimbStatorCurrentLimit = 120;
