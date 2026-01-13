@@ -39,7 +39,7 @@ public class Constants {
         public static final Current kShooterMotorSupplyCurrentLimit = Amps.of(60);
 
         // Shoot Speeds
-        public static final double kShootCloseSpeed = 50;
+        public static final double kShootCloseSpeed = 45;
     }
 
     public static final class FeederConstants{
