@@ -9,7 +9,7 @@ public class RobotContainer {
     private final ShooterSubsystem m_shooter = new ShooterSubsystem();
     private final FeederSubsystem m_feeder = new FeederSubsystem();
     private final IntakeSubsystem m_intake = new IntakeSubsystem();
-    // private final ClimbSubsystem m_climb = new ClimbSubsystem();
+    private final ClimbSubsystem m_climb = new ClimbSubsystem();
     
     private final CommandXboxController m_driverController = 
         new CommandXboxController(Constants.kDriverControllerPort);
@@ -29,8 +29,8 @@ public class RobotContainer {
         m_driverController.rightBumper().whileTrue(new MoveIntakeCommand(m_intake, Constants.IntakeConstants.kRotationSpeed));
         m_driverController.leftBumper().whileTrue(new MoveIntakeCommand(m_intake, -Constants.IntakeConstants.kRotationSpeed));
         m_driverController.leftTrigger().whileTrue(new IntakeFeedCommand(m_intake, false));
-        // m_driverController.povUp().whileTrue(new ClimbUp(m_climb));
-        // m_driverController.povDown().whileTrue(new ClimbDown(m_climb));
+        m_driverController.povUp().whileTrue(new ClimbCommand(m_climb, Constants.ClimbConstants.kClimbSpeed));
+        m_driverController.povDown().whileTrue(new ClimbCommand(m_climb, -Constants.ClimbConstants.kClimbSpeed));
         m_driverController.a().whileTrue(new IntakeFeedCommand(m_intake, true));
         }
 }   

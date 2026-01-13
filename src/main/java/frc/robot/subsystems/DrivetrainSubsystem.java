@@ -15,7 +15,6 @@ import static frc.robot.Constants.DrivetrainConstants.kRightFollowerPort;
 import com.revrobotics.spark.SparkBase.PersistMode;
 
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
@@ -77,11 +76,7 @@ public class DrivetrainSubsystem extends SubsystemBase
     }
 
     @Override
-    public void periodic()
-    {
-        SmartDashboard.putNumber("Left Out", leftLeader.getAppliedOutput());
-        SmartDashboard.putNumber("Right Out", rightLeader.getAppliedOutput());
-    }
+    public void periodic() {}
 
     // Command factory to create command to drive the robot with joystick inputs.
     public Command driveArcade(DoubleSupplier xSpeed, DoubleSupplier zRotation) {
