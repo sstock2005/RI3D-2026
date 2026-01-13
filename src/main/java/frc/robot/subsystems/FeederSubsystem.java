@@ -35,19 +35,15 @@ public class FeederSubsystem extends SubsystemBase {
             )
         ;
 
-        //apply configs
+        // Apply configs
         feeder.getConfigurator().apply(feederConfig);
-
-        // enable motor watchdog
-        feeder.setSafetyEnabled(false);
     }
 
-    // set motor speed (% of max)
     public void setFeederSpeed(double speed){
         feeder.set(speed);
     }
 
-    public void Stop(){
+    public void stop(){
         feeder.stopMotor();
     }
 
