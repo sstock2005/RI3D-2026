@@ -62,11 +62,11 @@ public class Constants {
         public static final int kClimbSupplyCurrentLimit = 60;
 
         // climb motor run speed
-        public static final double kClimbSpeed = .1;
+        public static final double kClimbSpeed = 0.25;
 
         // motor soft limits
-        public static final int kClimbUpperLimit = 0;
-        public static final int kClimbLowerLimit = 0;
+        public static final int kClimbUpperLimit = 195;
+        public static final int kClimbLowerLimit = 3;
     }
 
     public static final class IntakeConstants {
@@ -81,7 +81,7 @@ public class Constants {
         public static final Current kIntakeRotationWheelStatorCurrentLimit = Amps.of(120);
 
         // Speed Constants
-        public static final double kRotationSpeed = 0.05;
+        public static final double kRotationSpeed = 0.1;
         public static final double kWheelSpeed = 0.8;
 
         public static final double kS = 0.25; // Add 0.25 V output to overcome static friction

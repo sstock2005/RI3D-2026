@@ -4,7 +4,6 @@ import static frc.robot.Constants.FeederConstants.kFeederMotorStatorCurrentLimit
 import static frc.robot.Constants.FeederConstants.kFeederMotorSupplyCurrentLimit;
 import static frc.robot.Constants.FeederConstants.kFeederPort;
 
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.configs.CurrentLimitsConfigs;
@@ -53,7 +52,5 @@ public class FeederSubsystem extends SubsystemBase {
     }
 
     @Override
-    public void periodic() {
-        SmartDashboard.putNumber("Feeder Set Speed", feeder.get());
-    }
+    public void periodic() {}
 }

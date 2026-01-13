@@ -107,7 +107,6 @@ public class IntakeSubsystem extends SubsystemBase {
         return intakeRotationRight.getPosition().getValueAsDouble();
     }
 
-    // put diagnostics to smartdashboard
     @Override
     public void periodic() {}
 }

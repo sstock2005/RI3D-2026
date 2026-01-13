@@ -11,6 +11,7 @@ import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.signals.InvertedValue;
 import com.ctre.phoenix6.signals.NeutralModeValue;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class ClimbSubsystem extends SubsystemBase {
@@ -29,7 +30,7 @@ public class ClimbSubsystem extends SubsystemBase {
             )
             .withMotorOutput(
                 new MotorOutputConfigs()
-                    .withInverted(InvertedValue.Clockwise_Positive)
+                    .withInverted(InvertedValue.CounterClockwise_Positive) // Inverted
                     .withNeutralMode(NeutralModeValue.Brake)
             );
             
@@ -43,7 +44,9 @@ public class ClimbSubsystem extends SubsystemBase {
     }
 
     @Override
-    public void periodic() {}
+    public void periodic() {
+        SmartDashboard.putNumber("Climb Encoder Tick", climbMotor.getPosition().getValueAsDouble());
+    }
 
     public void SetSpeed(double speed) {
         climbMotor.set(speed);
