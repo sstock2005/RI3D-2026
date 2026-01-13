@@ -38,14 +38,11 @@ public class MoveIntakeCommand extends Command {
         m_intakeSubsystem.setIntakeRotation(m_speed);
     }
 
-    
-    // Stop intake rotation on command end
     @Override
     public void end(boolean interrupted) {
         m_intakeSubsystem.setIntakeRotation(0.0);
     }
     
-    // Never finishes on its own
     @Override
     public boolean isFinished() {
         return false;

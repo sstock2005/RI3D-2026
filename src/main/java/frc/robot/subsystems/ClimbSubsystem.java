@@ -39,7 +39,7 @@ public class ClimbSubsystem extends SubsystemBase {
         climbMotor.getConfigurator().apply(climbMotorConfig);
     }
 
-    public void Stop() {
+    public void stop() {
         climbMotor.stopMotor();
     }
 
@@ -48,7 +48,7 @@ public class ClimbSubsystem extends SubsystemBase {
         SmartDashboard.putNumber("Climb Encoder Tick", climbMotor.getPosition().getValueAsDouble());
     }
 
-    public void SetSpeed(double speed) {
+    public void setSpeed(double speed) {
         climbMotor.set(speed);
     }
 

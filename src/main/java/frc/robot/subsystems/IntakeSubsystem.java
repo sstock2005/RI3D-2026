@@ -103,10 +103,6 @@ public class IntakeSubsystem extends SubsystemBase {
         return intakeRotationLeft.getPosition().getValueAsDouble();
     }
 
-    public double getRightIntakePosition() {
-        return intakeRotationRight.getPosition().getValueAsDouble();
-    }
-
     @Override
     public void periodic() {}
 }

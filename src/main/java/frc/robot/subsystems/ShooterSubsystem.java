@@ -9,8 +9,9 @@ import static frc.robot.Constants.ShooterConstants.kV;
 import static frc.robot.Constants.ShooterConstants.kShooterMotorStatorCurrentLimit;
 import static frc.robot.Constants.ShooterConstants.kShooterMotorSupplyCurrentLimit;
 
-import com.ctre.phoenix6.BaseStatusSignal;
 import static edu.wpi.first.units.Units.RotationsPerSecond;
+
+import com.ctre.phoenix6.BaseStatusSignal;
 import com.ctre.phoenix6.configs.CurrentLimitsConfigs;
 import com.ctre.phoenix6.configs.MotorOutputConfigs;
 import com.ctre.phoenix6.configs.Slot0Configs;
@@ -53,22 +54,22 @@ public class ShooterSubsystem extends SubsystemBase {
                     .withKV(kV)
             );
             
-        // apply configs and pid controller
+        // Apply configs and pid controller
         shooterMotor.getConfigurator().apply(shooterMotorConfig);
         shooterController = new VelocityVoltage(0.0).withSlot(0);
 
-        // enable motor watchdog
+        // Enable motor watchdog
         shooterMotor.setSafetyEnabled(true);
     }
 
     // Set shooter wheel velocity in rotations per second
-    public void SetVelocity(double rotationsPerSecond) {
+    public void setVelocity(double rotationsPerSecond) {
         targetRps = rotationsPerSecond;
         shooterMotor.setControl(shooterController.withVelocity(rotationsPerSecond));
     }
 
     // Stop the shooter wheel
-    public void Stop() {
+    public void stop() {
         targetRps = 0.0;
         shooterMotor.stopMotor();
     }

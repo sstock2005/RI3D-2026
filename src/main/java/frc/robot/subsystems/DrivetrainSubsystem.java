@@ -3,7 +3,9 @@ package frc.robot.subsystems;
 import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.config.SparkMaxConfig;
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
-import com.revrobotics.spark.SparkBase.ResetMode;
+import com.revrobotics.spark.SparkLowLevel.MotorType;
+import com.revrobotics.ResetMode;
+import com.revrobotics.PersistMode;
 
 import java.util.function.DoubleSupplier;
 
@@ -12,13 +14,9 @@ import static frc.robot.Constants.DrivetrainConstants.kLeftFollowerPort;
 import static frc.robot.Constants.DrivetrainConstants.kRightLeaderPort;
 import static frc.robot.Constants.DrivetrainConstants.kRightFollowerPort;
 
-import com.revrobotics.spark.SparkBase.PersistMode;
-
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-
-import com.revrobotics.spark.SparkLowLevel.MotorType;
 
 public class DrivetrainSubsystem extends SubsystemBase
 {
@@ -78,7 +76,6 @@ public class DrivetrainSubsystem extends SubsystemBase
     @Override
     public void periodic() {}
 
-    // Command factory to create command to drive the robot with joystick inputs.
     public Command driveArcade(DoubleSupplier xSpeed, DoubleSupplier zRotation) {
         return this.run(() -> drive.arcadeDrive(xSpeed.getAsDouble(), zRotation.getAsDouble()));
     }

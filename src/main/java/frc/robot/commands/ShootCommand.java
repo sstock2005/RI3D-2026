@@ -9,41 +9,36 @@ import frc.robot.subsystems.ShooterSubsystem;
 
 
 public class ShootCommand extends Command{
-    private final ShooterSubsystem m_ShooterSubsystem;
-    private final FeederSubsystem m_FeederSubsystem;
+    private final ShooterSubsystem m_shooterSubsystem;
+    private final FeederSubsystem m_feederSubsystem;
 
     public ShootCommand(ShooterSubsystem shooterSubsystem, FeederSubsystem feederSubsystem) {
-        m_ShooterSubsystem = shooterSubsystem;
-        m_FeederSubsystem = feederSubsystem;
-
+        m_shooterSubsystem = shooterSubsystem;
+        m_feederSubsystem = feederSubsystem;
         addRequirements(shooterSubsystem, feederSubsystem);
     }
 
-    // Set shooter to close speed
     @Override
     public void initialize() {
-        m_ShooterSubsystem.SetVelocity(kShootCloseSpeed);
+        m_shooterSubsystem.setVelocity(kShootCloseSpeed);
     }
 
-    // Run feeder only when shooter is in tolerance
     @Override
     public void execute() {
-        if(m_ShooterSubsystem.AtVelocity()) {
-            m_FeederSubsystem.setFeederSpeed(kFeederSpeed);
+        if(m_shooterSubsystem.AtVelocity()) {
+            m_feederSubsystem.setFeederSpeed(kFeederSpeed);
         }
         else {
-            m_FeederSubsystem.Stop();
+            m_feederSubsystem.stop();
         }
     }
 
-    // Stop both shooter and feeder
     @Override
     public void end(boolean interrupted) {
-        m_ShooterSubsystem.Stop();
-        m_FeederSubsystem.Stop();
+        m_shooterSubsystem.stop();
+        m_feederSubsystem.stop();
     }
 
-    // Never finishes on its own
     @Override
     public boolean isFinished() {
         return false;
